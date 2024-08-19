@@ -1,14 +1,51 @@
-# Youtube-video-extractor-and-player
-extract youtube videos with a minimal Interface 
 
-## Some website designed to disable user form geting youtube link easily This is script gives you a minimal interface for extracting and playing youtube videos in those sites pages it comes with a player which allows you to control youtube videos at ease it also have a trigger button that can open that video in free tube which is a privacy Privacy friendly alternative of youtube that do not contain ads.
 
-# How to use it?
-My recommendation is use this extension to add this script in those website wher you need it most
+---
 
-User JavaScript and CSS : https://chromewebstore.google.com/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld
-If you have Tampermonkey installed you can also use that
-https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
+# YouTube Video Extractor and Player
+
+A simple script to extract and play YouTube videos with a minimal interface.
+
+
+
+
+https://github.com/user-attachments/assets/d0ce7688-b16a-43a8-a575-d4797b0aebdf
+
+
+
+## Overview
+
+Some websites are designed to prevent users from easily obtaining YouTube links. This script provides a clean and simple interface for extracting and playing YouTube videos directly on these sites. It also includes a player that gives you full control over the video playback. Additionally, it features a trigger button to open the video in [FreeTube](https://freetubeapp.io/), a privacy-friendly alternative to YouTube that is ad-free.
+
+## Features
+
+- **Minimal Interface:** Extract YouTube video links with ease.
+- **Built-in Player:** Control video playback directly within the interface.
+- **FreeTube Support:** Option to open videos in FreeTube for an ad-free experience.
+
+## Installation
+
+To use this script, you can add it to your preferred browser using the following extensions:
+
+### Option 1: User JavaScript and CSS
+This extension allows you to inject custom JavaScript and CSS into any website. It’s ideal for adding this script where you need it most.
+
+- **Install the extension:** [User JavaScript and CSS](https://chromewebstore.google.com/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld)
+- **Add the script:** Copy the code from this repository and paste it into the extension’s script editor.
+
+### Option 2: Tampermonkey
+If you already have Tampermonkey installed, you can easily add this script to it.
+
+- **Install Tampermonkey:** [Tampermonkey](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+- **Add the script:** Create a new userscript in Tampermonkey, then copy and paste the code from this repository.
+
+## How to Use
+
+1. **Inject the Script:** Once the script is added to your preferred extension, visit the website where you want to extract the YouTube video.
+2. **Activate the Script:** The minimal interface will appear, allowing you to extract the video link.
+3. **Control Playback:** Use the built-in player to watch the video, or click the FreeTube button to open it in FreeTube for an enhanced viewing experience.
+
+
 
 ```
 window.onload = function() {
@@ -223,3 +260,11 @@ window.onload = function() {
 };
 
 ```
+
+## Contributing
+
+Feel free to fork this repository, make changes, and submit pull requests. Your contributions are welcome!
+
+## License
+
+This project is licensed under the MIT License.
