@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+
+    <style id="webmakerstyle">
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            color: #333;
+        }
+
+        pre {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-x: auto;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 70px 20px 50px 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            overflow: hidden;
+        }
+
+        .header-container {
+            position: relative;
+        }
+
+        .tab-container {
+            /* position: absolute; */
+            /* top: 20px; */
+            /* left: 50%; */
+            /* transform: translateX(-50%); */
+        }
+
+        .tab {
+            display: inline-block;
+            background: #f1f1f1;
+            padding: 10px 30px;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            font-size: 1.2em;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .tab::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: white;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-container h1 {
+            font-size: 3em;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 70px;
+            /* Adjust to fit the tab */
+        }
+
+        .header-container p {
+            font-size: 1.5em;
+            margin-top: 10px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        header::before,
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 10.01%);
+            background-size: 100px 100px;
+            animation: moveBackground 25s linear infinite;
+        }
+
+        header::before {
+            left: -100%;
+        }
+
+        header::after {
+            left: 100%;
+            animation-delay: 12.5s;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 50px 10px;
+            }
+
+            .tab-container {
+                top: 10px;
+            }
+
+            .tab {
+                padding: 8px 20px;
+                font-size: 1em;
+            }
+
+            .header-container h1 {
+                font-size: 2em;
+                margin-top: 50px;
+            }
+
+            .header-container p {
+                font-size: 1.2em;
+            }
+        }
+
+
+        @keyframes moveBackground {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+
+        main {
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        #features {
+            width: 100%;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #e0eafc, #cfdef3);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: calc(50% - 20px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-content {
+            padding: 20px;
+            text-align: center;
+            background: white;
+            border-bottom: 2px solid #e0eafc;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .feature-content h3 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .feature-content p {
+            margin: 10px 0 0;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .feature-image {
+            text-align: center;
+            padding: 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .feature-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        #screenshots img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .download-button {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .download-button:hover {
+            background: #45a049;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        .about-image img {
+            border-radius: 50%;
+            max-width: 150px;
+            height: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-content {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .about-content h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .about-content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-content {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+
+            .about-image img {
+                max-width: 120px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .feature-card {
+                width: 100%;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rumon's New Tab Extension</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" href="icons/icon.png" type="image/png">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    </head>
+
+    <body>
+        <header>
+            <div class="header-container">
+
+                <h1>YouTube Video Extractor and Player</h1>
+                <p>A simple script to extract and play YouTube videos with a minimal interface.</p>
+            </div>
+        </header>
+
+
+
+
+        <main>
+            <section id="features">
+                <h1>Features</h1>
+                <div class="container">
+
+                    <div class="feature-card">
+                        <div class="feature-content">
+                            <h3>Minimal Interface</h3>
+                            <p>Extract YouTube video links with ease.</p>
+                        </div>
+                        <div class="feature-image">
+                            <img src="images/inter.jpeg" alt="Calculator">
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-content">
+                            <h3>Built-in Player </h3>
+                            <p>Control video playback directly within the interface.</p>
+                        </div>
+                        <div class="feature-image">
+                            <img src="images/player.jpeg" alt="Bookmarks Section">
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-content">
+                            <h3>FreeTube Support </h3>
+                            <p>Option to open videos in FreeTube for an ad-free experience.</p>
+                        </div>
+                        <div class="feature-image">
+                            <img src="images/free.jpeg" alt="History Section">
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <div >
+                <h1>YouTube Video Extractor and Player</h1>
+                <h2>Project Overview</h2>
+                <p>This project provides a minimal interface for extracting and playing YouTube videos directly on
+                    websites where obtaining the video links is difficult. It includes a built-in player and supports
+                    FreeTube for an ad-free viewing experience.</p>
+
+                <h2>Code</h2>
+                <pre id="codeBlock">
+                    window.onload = function() {
+                        (function() {
+                            const playButton = document.createElement("button");
+                            const popupContainer = document.createElement("div");
+                            const popupContent = document.createElement("div");
+                            const buttonGroup = document.createElement("div");
+                            const closeButton = document.createElement("button");
+                            const freetubeButton = document.createElement("button");
+                            const youtubeIframe = document.createElement("iframe");
+                            const videoList = document.createElement("div");
+                            const minimizeButton = document.createElement("button");
+                    
+                            // Styles for the floating button
+                            playButton.textContent = "Play";
+                            playButton.style.position = "fixed";
+                            playButton.style.bottom = "20px";
+                            playButton.style.right = "20px";
+                            playButton.style.padding = "15px 20px";
+                            playButton.style.backgroundColor = "#ff4757";
+                            playButton.style.color = "white";
+                            playButton.style.border = "none";
+                            playButton.style.borderRadius = "50px";
+                            playButton.style.cursor = "pointer";
+                            playButton.style.zIndex = "1000";
+                            playButton.style.fontSize = "18px";
+                            playButton.style.display = "none";
+                    
+                            // Styles for the popup container
+                            popupContainer.style.position = "fixed";
+                            popupContainer.style.top = "0";
+                            popupContainer.style.left = "0";
+                            popupContainer.style.width = "100%";
+                            popupContainer.style.height = "100%";
+                            popupContainer.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+                            popupContainer.style.display = "none";
+                            popupContainer.style.justifyContent = "center";
+                            popupContainer.style.alignItems = "center";
+                            popupContainer.style.zIndex = "1001";
+                    
+                            // Styles for the popup content
+                            popupContent.style.position = "relative";
+                            popupContent.style.width = "80%";
+                            popupContent.style.maxWidth = "800px";
+                            popupContent.style.backgroundColor = "#fff";
+                            popupContent.style.borderRadius = "10px";
+                            popupContent.style.padding = "10px";
+                    
+                            // Styles for the iframe
+                            youtubeIframe.style.width = "100%";
+                            youtubeIframe.style.height = "450px";
+                            youtubeIframe.style.border = "none";
+                            youtubeIframe.style.borderRadius = "10px";
+                    
+                            // Styles for the button group
+                            buttonGroup.style.position = "absolute";
+                            buttonGroup.style.top = "-40px";
+                            buttonGroup.style.right = "-40px";
+                            buttonGroup.style.display = "flex";
+                            buttonGroup.style.gap = "10px";
+                    
+                            // Styles for the close button
+                            closeButton.textContent = "Close";
+                            closeButton.style.backgroundColor = "#ff4757";
+                            closeButton.style.color = "white";
+                            closeButton.style.border = "none";
+                            closeButton.style.borderRadius = "20%";
+                            closeButton.style.padding = "10px";
+                            closeButton.style.cursor = "pointer";
+                            closeButton.style.fontSize = "16px";
+                            closeButton.style.zIndex = "1002";
+                    
+                            // Styles for the Freetube button
+                            freetubeButton.textContent = "Open in Freetube";
+                            freetubeButton.style.backgroundColor = "#1e90ff";
+                            freetubeButton.style.color = "white";
+                            freetubeButton.style.border = "none";
+                            freetubeButton.style.borderRadius = "50px";
+                            freetubeButton.style.padding = "10px 20px";
+                            freetubeButton.style.cursor = "pointer";
+                            freetubeButton.style.fontSize = "14px";
+                            freetubeButton.style.zIndex = "1002";
+                    
+                            // Styles for the video list
+                            videoList.style.position = "fixed";
+                            videoList.style.bottom = "100px";
+                            videoList.style.right = "20px";
+                            videoList.style.backgroundColor = "#fff";
+                            videoList.style.border = "1px solid #ccc";
+                            videoList.style.borderRadius = "8px";
+                            videoList.style.padding = "10px";
+                            videoList.style.maxHeight = "300px";
+                            videoList.style.overflowY = "auto";
+                            videoList.style.zIndex = "1000";
+                            videoList.style.display = "none";
+                    
+                            // Styles for the minimize button
+                            minimizeButton.textContent = "−";
+                            minimizeButton.style.position = "fixed";
+                            minimizeButton.style.bottom = "70px";
+                            minimizeButton.style.right = "20px";
+                            minimizeButton.style.backgroundColor = "#ff4757";
+                            minimizeButton.style.color = "white";
+                            minimizeButton.style.border = "none";
+                            minimizeButton.style.borderRadius = "20%";
+                            minimizeButton.style.padding = "5px";
+                            minimizeButton.style.cursor = "pointer";
+                            minimizeButton.style.fontSize = "16px";
+                            minimizeButton.style.zIndex = "1000";
+                            minimizeButton.style.display = "none";
+                    
+                            // Append elements to the DOM
+                            document.body.appendChild(playButton);
+                            buttonGroup.appendChild(closeButton);
+                            buttonGroup.appendChild(freetubeButton);
+                            popupContent.appendChild(buttonGroup);
+                            popupContent.appendChild(youtubeIframe);
+                            popupContainer.appendChild(popupContent);
+                            document.body.appendChild(popupContainer);
+                            document.body.appendChild(videoList);
+                            document.body.appendChild(minimizeButton);
+                    
+                            // Regular expressions to find YouTube links and embedded videos
+                            const youtubeLinkRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([^\s&]+)/g;
+                            const youtubeEmbedRegex = /(?:https?:\/\/)?(?:www\.)?youtube\.com\/embed\/([^\s&]+)/g;
+                    
+                            // Find all YouTube links and embeds on the page
+                            const links = [...document.querySelectorAll("a"), ...document.querySelectorAll("iframe")];
+                            let videoUrls = [];
+                            let currentVideoUrl = '';
+                    
+                            links.forEach(link => {
+                                let href = link.href || link.src;
+                    
+                                if (href) {
+                                    let match = href.match(youtubeLinkRegex) || href.match(youtubeEmbedRegex);
+                                    if (match) {
+                                        videoUrls.push(match[0]);
+                                    }
+                                }
+                            });
+                    
+                            if (videoUrls.length > 0) {
+                                playButton.style.display = "block";
+                            }
+                    
+                            // Create video list if there are multiple videos
+                            if (videoUrls.length > 1) {
+                                videoList.style.display = "block";
+                                minimizeButton.style.display = "block";
+                    
+                                const header = document.createElement("div");
+                                header.innerText = `Videos found: ${videoUrls.length}`;
+                                header.style.marginBottom = "10px";
+                                videoList.appendChild(header);
+                    
+                                videoUrls.forEach((url, index) => {
+                                    let videoId = url.match(youtubeLinkRegex) ? url.split("v=")[1] : url.split("embed/")[1];
+                                    let videoLink = document.createElement("a");
+                                    videoLink.href = "#";
+                                    videoLink.innerText = `Link ${index + 1}: https://www.youtube.com/watch?v=${videoId}`;
+                                    videoLink.style.display = "block";
+                                    videoLink.style.marginBottom = "5px";
+                                    videoLink.addEventListener("click", function () {
+                                        currentVideoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+                                        youtubeIframe.src = `https://www.youtube.com/embed/${videoId}`;
+                                        popupContainer.style.display = "flex";
+                                    });
+                    
+                                    videoList.appendChild(videoLink);
+                                });
+                            }
+                    
+                            // Open popup when play button is clicked
+                            playButton.addEventListener("click", function () {
+                                if (videoUrls.length === 1) {
+                                    let videoId = videoUrls[0].split("v=")[1] || videoUrls[0].split("embed/")[1];
+                                    currentVideoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+                                    youtubeIframe.src = `https://www.youtube.com/embed/${videoId}`;
+                                    popupContainer.style.display = "flex";
+                                } else {
+                                    videoList.style.display = videoList.style.display === "block" ? "none" : "block";
+                                }
+                            });
+                    
+                            // Close popup when close button is clicked
+                            closeButton.addEventListener("click", function () {
+                                popupContainer.style.display = "none";
+                                youtubeIframe.src = "";
+                            });
+                    
+                            // Open video in Freetube when Freetube button is clicked
+                            freetubeButton.addEventListener("click", function () {
+                                if (currentVideoUrl) {
+                                    const freetubeUrl = `freetube://${currentVideoUrl}`;
+                                    window.location.href = freetubeUrl;
+                                }
+                            });
+                    
+                            // Minimize and unminimize the video list
+                            minimizeButton.addEventListener("click", function () {
+                                if (videoList.style.display === "block") {
+                                    videoList.style.display = "none";
+                                    minimizeButton.textContent = "+";
+                                } else {
+                                    videoList.style.display = "block";
+                                    minimizeButton.textContent = "−";
+                                }
+                            });
+                        })();
+                    };
+                    
+            </pre>
+                <button onclick="copyCode()">Copy Code</button>
+
+                <h2>Installation Guide</h2>
+                <p>If you find it difficult to locate the extensions needed to use this script, follow the steps below:
+                </p>
+                <ul>
+                    <li><strong>User JavaScript and CSS Extension:</strong> Search for "User JavaScript and CSS" in your
+                        browser's extension store or use this <a
+                            href="https://chromewebstore.google.com/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld"
+                            target="_blank">direct link</a>.</li>
+                    <li><strong>Tampermonkey Extension:</strong> Search for "Tampermonkey" in your browser's extension
+                        store or use this <a
+                            href="https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo"
+                            target="_blank">direct link</a>.</li>
+                </ul>
+                <p>Once the extension is installed, add the script by copying it from the above code block and pasting
+                    it into the appropriate section of the extension.</p>
+
+                <h2>Video Tutorial</h2>
+               <video width="100%" src="images/Two-thirds of your body is made up of oxygen.mp4" controls></video>
+
+
+            </div>
+
+            <script>
+                function copyCode() {
+                    var codeBlock = document.getElementById("codeBlock");
+                    var textArea = document.createElement("textarea");
+                    textArea.value = codeBlock.textContent;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand("Copy");
+                    document.body.removeChild(textArea);
+                    alert("Code copied to clipboard!");
+                }
+            </script>
+
+
+            <section id="about">
+                <div class="container about-container">
+                    <div class="about-image">
+                        <img src="images/profile.png" alt="Developer Rumon">
+                    </div>
+                    <div class="about-content">
+                        <h2>About the Developer</h2>
+                        <p>Created by <strong>Rumon</strong>, a passionate developer with expertise in creating
+                            innovative browser extensions. Rumon is dedicated to enhancing user experience with powerful
+                            tools and features. For inquiries, please contact <a
+                                href="mailto:asrumon@duck.com">asrumon@duck.com</a>.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 Rumon's New Tab Extension. All rights reserved.</p>
+            </div>
+        </footer>
+    </body>
+
+    </html>
+
+
+
+</body>
+
+</html>
